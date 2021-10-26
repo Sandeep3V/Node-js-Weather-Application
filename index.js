@@ -99,12 +99,28 @@ app.set('view engine', 'hbs')
 
 app.use(express.static(publicDirectoryPath))
 
+const port = process.env.PORT || 3000
 app.get('', (req, res) => {
     res.render("index", {
         title: "Stay tuned for more updates",
         footer: "Please follow us!"
     })
 })
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Me',
+        name: 'Andrew Mead'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        helpText: 'This is some helpful text.',
+        title: 'Help',
+        name: 'Sandeep Vuppala'
+    })
+})
+
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
@@ -121,8 +137,9 @@ app.get('/weather', (req, res) => {
             if (error) {
                 return res.send({ error })
             }
+            if (error)
 
-            return res.send({
+                return res.send({
                 forecast: forecastData,
                 location,
                 address: req.query.address,
@@ -133,15 +150,20 @@ app.get('/weather', (req, res) => {
 })
 
 
-app.get('/about', (req, res) => {
-    res.render("about", {
-        title: "Namaste About!"
-    })
-})
-app.get('*', (req, res) => {
-    res.render("404", {
-        title: "Page not Found and please check out URL"
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Sandeep Vuppala',
+        errorMessage: 'Help article not found.'
     })
 })
 
-app.listen(3000);
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        name: 'Sandeep Vuppala',
+        errorMessage: 'Page not found.'
+    })
+})
+
+app.listen(port);

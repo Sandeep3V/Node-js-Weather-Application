@@ -167,10 +167,12 @@ messageTwo.textContent = " ";
 
 
 weather.addEventListener('submit', (e) => {
+    messageOne.textContent = ''
     const locations = search.value;
-    console.log(locations)
     e.preventDefault()
-    fetch('http://localhost:3000/weather?address=' + locations).then((response) => {
+    if (locations === '') { return messageOne.textContent = "Please enter valid search" }
+
+    fetch('/weather?address=' + locations).then((response) => {
         response.json().then((data) => {
             if (data.error) {
 

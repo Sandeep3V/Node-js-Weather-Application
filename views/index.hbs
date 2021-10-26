@@ -3,23 +3,28 @@
 <html>
 
 <head>
-    
-
+    <title>Weather</title>
+    <link rel="icon" href="/src/img/weather.png">
+    <link rel="stylesheet" href="/src/styles.css">
 </head>
 
 <body>
+    <div class="main-content">
+        {{>header}}
 
-    <br><br>
-    <form>
-        <input style="padding:12px"class="id" type="text" placeholder="location">
-    <button style="background-color: rgb(231, 151, 94);">Submit</button>
-    </form>
-    
-    <header>{{>header}}</header>
-    <h1>Weather</h1>
-    <footer>{{footer}}</footer>
-    <p id="message-1" style="color:rgb(46, 54, 179)"></p>
-    <p id="message-2"style="color:red"></p>
+        <p>Use this site to get your weather!</p>
+
+        <form>
+            <input placeholder="Location">
+            <button>Search</button>
+        </form>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
+    </div>
+
+    {{>footer}}
+
     <script src="/src/index.js"></script>
 </body>
 

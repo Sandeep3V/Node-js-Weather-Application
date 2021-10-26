@@ -4,7 +4,6 @@ body {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh
@@ -37,7 +36,7 @@ header a {
     text-decoration: none;
 }
 
-.portrait {
+img {
     width: 250px;
 }
 

@@ -4,10 +4,7 @@ const readingNotes = function(title) {
     const notes = loadNotes()
     const read = notes.filter(note => {
         return note.title === title
-
     })
-
-
 }
 const removeNote = (title) => {
     const notes = loadNotes()
@@ -37,10 +34,8 @@ const addNotes = function(title, body) {
     } else {
         console.log("Notes Itemm already taken")
     }
-
-
-
 }
+
 const readNotes = function(title) {
     const notes = loadNotes()
     notes.forEach(element => {
@@ -62,9 +57,6 @@ const loadNotes = function() {
         return []
     }
 }
-
-
-
 
 module.exports = {
     addNotes: addNotes,
